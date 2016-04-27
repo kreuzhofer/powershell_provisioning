@@ -6,6 +6,7 @@ Start-Process -FilePath "C:\Windows\System32\msiexec.exe" -ArgumentList "/i Pack
 Start-Process -FilePath "C:\Windows\System32\Dism.exe" -ArgumentList "/online /enable-feature /FeatureName:IIS-WebServerRole" -NoNewWindow -Wait
 
 # Install Carbon
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Install-Module -Name 'Carbon' -Force
 Import-Module 'Carbon'
 

@@ -5,7 +5,7 @@ Start-Process -FilePath "C:\Windows\System32\msiexec.exe" -ArgumentList "/i Pack
 # Enable Web Server Feature
 Start-Process -FilePath "C:\Windows\System32\Dism.exe" -ArgumentList "/online /enable-feature /FeatureName:IIS-WebServerRole" -NoNewWindow -Wait
 
-# Install Carbon
+# Install Carbon (http://get-carbon.org/index.html)
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Install-Module -Name 'Carbon' -Force
 Import-Module 'Carbon'
@@ -16,3 +16,5 @@ $mycreds = New-Object System.Management.Automation.PSCredential (“localiisuser”,
 Install-User -Credential $mycreds -UserCannotChangePassword
 Add-GroupMember -Name 'IIS_IUSRS' -Member 'localiisuser'
 
+# Create new application pool with new user account
+Install-IisAppPool -Name "customapppool" -Credential $mycreds

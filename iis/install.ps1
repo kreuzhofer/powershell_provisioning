@@ -18,3 +18,4 @@ Add-GroupMember -Name 'IIS_IUSRS' -Member 'localiisuser'
 
 # Create new application pool with new user account
 Install-IisAppPool -Name "customapppool" -Credential $mycreds
+

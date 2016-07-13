@@ -1,4 +1,4 @@
-# Download Powershell Extensions
+# Download Powershell Extensions for PackageManagement
 Invoke-RestMethod -Uri "http://dkreuzh.blob.core.windows.net/deployment/PackageManagement_x64.msi" -OutFile "PackageManagement_x64.msi"
 Start-Process -FilePath "C:\Windows\System32\msiexec.exe" -ArgumentList "/i PackageManagement_x64.msi /quiet" -NoNewWindow -Wait
 
